@@ -1,0 +1,11 @@
+{
+  "buildCommand": "ng build --configuration production && node copy-dist.js",
+  "outputDirectory": "dist/lumiere-clinic/browser",
+  "framework": null,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

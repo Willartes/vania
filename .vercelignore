@@ -1,0 +1,5 @@
+backend/node_modules
+backend/src/database/*.db
+**/node_modules
+**/.git
+**/dist
