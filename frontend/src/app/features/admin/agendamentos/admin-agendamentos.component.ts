@@ -369,15 +369,14 @@ export class AdminAgendamentosComponent implements OnInit, OnDestroy {
 
   realizar(ag: Agendamento) {
     this.agApi.atualizarStatus(ag.id, 'realizado').subscribe({
-      next: r => {
+      next: () => {
         this.toast.success('Marcado como realizado!');
         this.buscar();
         if (ag.usuario_telefone) {
-          const dados = r.dados || ag;
           const msg = encodeURIComponent(
-            `Ola ${dados.usuario_nome?.split(' ')[0] || ''}! ` +
-            `Seu atendimento de *${dados.servico_nome}* foi concluido. ` +
-            `Valor: *R$ ${(dados.servico_valor || 0).toFixed(2).replace('.', ',')}*. ` +
+            `Ola ${ag.usuario_nome?.split(' ')[0] || ''}! ` +
+            `Seu atendimento de *${ag.servico_nome}* foi concluido. ` +
+            `Valor: *R$ ${(ag.servico_valor || 0).toFixed(2).replace('.', ',')}*. ` +
             `Obrigada pela preferencia! ✦ Vania Herculano`
           );
           const tel = ag.usuario_telefone.replace(/\D/g, '');

@@ -96,7 +96,7 @@ export class AgendamentosApiService {
   }
 
   atualizarStatus(id: number, status: string) {
-    return this.http.patch<{ sucesso: boolean; mensagem: string }>(`${API}/agendamentos/${id}/status`, { status });
+    return this.http.patch<{ sucesso: boolean; mensagem: string; dados?: any }>(`${API}/agendamentos/${id}/status`, { status });
   }
 
   cancelar(id: number) {
